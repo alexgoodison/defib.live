@@ -29,7 +29,9 @@
     <div class="text-4xl font-semibold text-red-500">{location.name}</div>
 
     <div class="flex gap-3">
-      <img id="user-submitted-icon" class="h-12" src="https://img.icons8.com/color/96/000000/customer-skin-type-7.png" alt="User submitted icon" />
+      {#if location.is_user_submitted}
+        <img id="user-submitted-icon" class="h-12" src="https://img.icons8.com/color/96/000000/customer-skin-type-7.png" alt="User submitted icon" />
+      {/if}
       <a href={`/report?location=${location.name}`} id="flag-issue-icon" class="focus:outline-none">
         <img class="h-12" src="https://img.icons8.com/color/96/000000/filled-flag.png" alt="Flag issue icon" />
       </a>
