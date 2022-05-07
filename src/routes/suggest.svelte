@@ -49,7 +49,7 @@
       return;
     }
 
-    axios.post(`${import.meta.env.VITE_API_BASE_URL}/v1/submit`, form)
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/submit`, form)
       .then(() => window.location = "/suggest_success")
       .catch(() => errors.push("An unexpected error occurred. Please try again later."))
   }

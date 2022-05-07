@@ -15,7 +15,7 @@
   const submitForm = () => {
     errors = [];
 
-    axios.post(`${import.meta.env.VITE_API_BASE_URL}/v1/report`, form)
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/report`, form)
       .then(() => window.location = "/report_success")
       .catch(() => errors.push("An unexpected error occurred. Please try again later."))
   }
