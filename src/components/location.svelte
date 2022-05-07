@@ -37,9 +37,9 @@
         <img class="h-10" src="https://img.icons8.com/color/96/000000/filled-flag.png" alt="Flag issue icon" />
       </a>
 
-      <div>
-        <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${location.latitude},${location.longitude}`} class="rounded-lg px-3 py-2 bg-gray-200 text-gray-600 font-semibold hover:bg-gray-300 transition ease-in-out duration-150">Get directions</a>
-      </div>
+      <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${location.latitude},${location.longitude}`} class="rounded-lg px-3 py-2 bg-gray-200 text-gray-600 font-semibold hover:bg-gray-300 text-center transition ease-in-out duration-150">
+        Get directions
+      </a>
     </div>
   </div>
 
