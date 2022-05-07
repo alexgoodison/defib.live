@@ -25,7 +25,7 @@
 
 
     // Fetch locations
-    const { data: markers } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/all`)
+    const { data: markers } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/all`);
 
     var geojson = [];
 
@@ -37,7 +37,7 @@
         },
         'geometry': {
           'type': 'Point',
-          'coordinates': [m.latitude, m.longitude]
+          'coordinates': [m.longitude, m.latitude]
         }
       }
 
