@@ -15,8 +15,7 @@
   let errors = [];
 
   onMount(async () => {
-    mapboxgl.accessToken =
-      "pk.eyJ1IjoiYWxleGcxMyIsImEiOiJja3lhbzJtaTkwN2VuMnZwYmdpdGExOHY3In0.K64LAKgniEzPBnlPvEWV3g";
+    mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
 
     var map = new mapboxgl.Map({
       container: "map",
