@@ -12,88 +12,94 @@
   }
 
   onMount(async() => {
-    mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
-    
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/alexg13/ckafu39hw024a1ioz3dxcw4iz',
-      center: [-7.896901, 53.339954],
-      zoom: 9,
-      minZoom: 5,
-      maxZoom: 18
-    });
-
-
-    // Fetch locations
-    const { data: markers } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/all`);
-
-    var geojson = [];
-
-    markers.forEach(m => {
-      var feature = {
-        'type': 'Feature',
-        'properties': {
-          'marker': m
-        },
-        'geometry': {
-          'type': 'Point',
-          'coordinates': [m.longitude, m.latitude]
-        }
-      }
-
-      geojson.push(feature);
-    });
-
-    map.addControl(
-      new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-        countries: 'IE'
-      })
-    );
-
-    map.addSource('markers', {
-      'type': 'geojson',
-      'data': {
-        'type': 'FeatureCollection',
-        'features': geojson
-      }
-    })
-
-    map.addLayer({
-      'id': 'markers',
-      'type': 'symbol',
-      'source': 'markers',
-      'layout': {
-        'icon-image': 'marker',
-        'icon-allow-overlap': true
-      }
-    });
-
-    map.addControl(new window.mapboxgl.NavigationControl());
-
-    map.on('load', () => {
-      map.loadImage(
-        'https://img.icons8.com/office/40/000000/marker.png',
-        (error, image) => {
-          if (error) throw error;
-          map.addImage('marker', image)
-        }
-      )
-    });
-
-    map.on('click', 'markers', e => {
-      const data = e.features[0].properties.marker;
-      showResults(data);
-    });
-
-    map.on('mousemove', 'markers', () => {
-      map.getCanvas().style.cursor = 'pointer';
-    });
+    try {
+      console.log("mounted")
+      mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
       
-    map.on('mouseleave', 'markers', () => {
-      map.getCanvas().style.cursor = '';
-    });
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/alexg13/ckafu39hw024a1ioz3dxcw4iz',
+        center: [-7.896901, 53.339954],
+        zoom: 9,
+        minZoom: 5,
+        maxZoom: 18
+      });
+
+
+      // Fetch locations
+      const { data: markers } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/all`);
+
+      var geojson = [];
+
+      markers.forEach(m => {
+        var feature = {
+          'type': 'Feature',
+          'properties': {
+            'marker': m
+          },
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [m.longitude, m.latitude]
+          }
+        }
+
+        geojson.push(feature);
+      });
+
+      map.addControl(
+        new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          mapboxgl: mapboxgl,
+          countries: 'IE'
+        })
+      );
+      
+      map.addControl(new window.mapboxgl.NavigationControl());
+      
+      map.on('load', () => {
+        map.loadImage(
+          'https://img.icons8.com/office/40/000000/marker.png',
+          (error, image) => {
+            if (error) throw error;
+            
+            map.addImage('marker', image)
+
+            map.addSource('markers', {
+              'type': 'geojson',
+              'data': {
+                'type': 'FeatureCollection',
+                'features': geojson
+              }
+            })
+
+            map.addLayer({
+              'id': 'markers',
+              'type': 'symbol',
+              'source': 'markers',
+              'layout': {
+                'icon-image': 'marker',
+                'icon-allow-overlap': true
+              }
+            });
+          }
+        )
+      });
+      
+      map.on('click', 'markers', e => {
+        const data = e.features[0].properties.marker;
+        showResults(data);
+      });
+      
+      map.on('mousemove', 'markers', () => {
+        map.getCanvas().style.cursor = 'pointer';
+      });
+        
+      map.on('mouseleave', 'markers', () => {
+        map.getCanvas().style.cursor = '';
+      });
+    } catch (error) {
+      console.log(error);
+    }
   })
 </script>
 
