@@ -100,7 +100,7 @@
 <div class="h-screen w-screen grid md:grid-cols-2">
   <div class="h-screen flex flex-col gap-12 justify-between bg-gray-50">
     <!-- Header -->
-    <div class="flex justify-between gap-4 items-center p-8">
+    <div class="flex flex-wrap justify-between gap-4 items-center p-8">
       <div class="flex items-center">
         <img src="heart.svg" alt="Heart Icon" title="Icon provided by ICONS8">
         <span class="text-4xl font-bold">DEFIB</span>

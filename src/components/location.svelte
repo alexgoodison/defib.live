@@ -62,5 +62,13 @@
       </div>
       <div class="text-lg text-gray-600">{location.opening_hours || 'No opening hours provided'}</div>
     </div>
+
+    <div class="rounded-lg bg-gray-100 text-gray-600 flex px-3 py-2 gap-2 items-center">
+      <img class="h-8 w-8" alt="Disclaimer icon" src="https://img.icons8.com/ios-glyphs/60/4b5563/disclaimer.png"/>
+      <div>
+        <div class="font-semibold">Disclaimer</div>
+        <div class="text-sm">Please note that defibrillator locations are user submitted. We cannot be held liable for any location errors that may occur.</div>
+      </div>
+    </div>
   </div>
 </div>
