@@ -9,7 +9,8 @@
     submission_email: null,
     locations: null,
     latitude: null,
-    longitude: null
+    longitude: null,
+    details: null
   }
 
   let errors = [];
@@ -80,6 +81,11 @@
     <div>
       <div class="mb-2 text-lg">Please provide your email so we can contact you if necessary.</div>
       <input required type="email" placeholder="your@email.com" name="submission_email" id="submission_email" bind:value={form.submission_email}>
+    </div>
+
+    <div>
+      <div class="mb-2 text-lg">Any additional details (optional).</div>
+      <textarea type="text" placeholder="Enter any additional information which may help users" name="details" id="details" bind:value={form.details} />
     </div>
 
     {#if errors.length > 0}
