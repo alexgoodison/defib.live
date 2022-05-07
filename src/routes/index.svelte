@@ -104,7 +104,7 @@
       <div class="flex items-center">
         <img src="heart.svg" alt="Heart Icon" title="Icon provided by ICONS8">
         <span class="text-4xl font-bold">DEFIB</span>
-        <span class="text-4xl">now</span>
+        <span class="text-4xl">.live</span>
       </div>
       
       <a href="/suggest" class="font-medium text-gray-400 hover:text-red-500 duration-150 ease-in-out transition">Suggest a Defibrillator</a>

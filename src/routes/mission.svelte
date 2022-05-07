@@ -5,7 +5,7 @@
 <a href="/" class="flex items-center p-8">
   <img src="heart.svg" alt="Heart Icon" title="Icon provided by ICONS8" />
   <span class="text-4xl font-bold">DEFIB</span>
-  <span class="text-4xl">now</span>
+  <span class="text-4xl">.live</span>
 </a>
 
 <div class="max-w-5xl px-4 mx-auto flex flex-col gap-8">

@@ -24,7 +24,7 @@
 <a href="/" class="flex items-center p-8">
   <img src="heart.svg" alt="Heart Icon" title="Icon provided by ICONS8" />
   <span class="text-4xl font-bold">DEFIB</span>
-  <span class="text-4xl">now</span>
+  <span class="text-4xl">.live</span>
 </a>
 
 <form on:submit|preventDefault={submitForm} class="max-w-4xl mx-auto px-4 flex flex-col gap-8">
