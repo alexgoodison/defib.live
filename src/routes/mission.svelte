@@ -32,6 +32,10 @@
   <div class="font-semibold text-lg">
     Alex Goodison
   </div>
+  
+  <div>
+    Made with<span class="px-1">❤️</span> in Co. Cork
+  </div>
 </div>
 
 <div class="flex justify-center pt-16 px-8 pb-4">
