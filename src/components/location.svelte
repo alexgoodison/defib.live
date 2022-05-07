@@ -28,13 +28,18 @@
   <div class="flex justify-between items-start gap-6 mb-6">
     <div class="text-4xl font-semibold text-red-500">{location.name}</div>
 
-    <div class="flex gap-3">
+    <div class="flex gap-3 items-center">
       {#if location.is_user_submitted}
-        <img id="user-submitted-icon" class="h-12" src="https://img.icons8.com/color/96/000000/customer-skin-type-7.png" alt="User submitted icon" />
+        <img id="user-submitted-icon" class="h-10" src="https://img.icons8.com/color/96/000000/customer-skin-type-7.png" alt="User submitted icon" />
       {/if}
+
       <a href={`/report?location=${location.name}`} id="flag-issue-icon" class="focus:outline-none">
-        <img class="h-12" src="https://img.icons8.com/color/96/000000/filled-flag.png" alt="Flag issue icon" />
+        <img class="h-10" src="https://img.icons8.com/color/96/000000/filled-flag.png" alt="Flag issue icon" />
       </a>
+
+      <div>
+        <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${location.latitude},${location.longitude}`} class="rounded-lg px-3 py-2 bg-gray-200 text-gray-600 font-semibold hover:bg-gray-300 transition ease-in-out duration-150">Get directions</a>
+      </div>
     </div>
   </div>
 
