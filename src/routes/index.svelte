@@ -6,6 +6,7 @@
   import Footer from "../components/footer.svelte"
 
   var marker = {};
+  var isLoading = true;
 
   const showResults = location => {
     marker = JSON.parse(location);
@@ -13,7 +14,10 @@
 
   onMount(async() => {
     try {
-      console.log("mounted")
+      // Fetch locations
+      const { data: markers } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/all`);
+      console.log(markers);
+
       mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
       
       var map = new mapboxgl.Map({
@@ -24,10 +28,6 @@
         minZoom: 5,
         maxZoom: 18
       });
-
-
-      // Fetch locations
-      const { data: markers } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/all`);
 
       var geojson = [];
 
@@ -81,6 +81,8 @@
                 'icon-allow-overlap': true
               }
             });
+
+            isLoading = false;
           }
         )
       });
@@ -133,8 +135,19 @@
   </div>
 
   <!-- Map -->
-  <div class="min-h-screen bg-blue-500">
-    <div id="map" />
+  <div class="min-h-screen bg-gray-100 relative">
+    <div class="h-screen">
+      <div id="map" />
+    </div>    
+
+    {#if isLoading}
+      <div class="absolute top-0 left-0 right-0 bottom-0 bg-gray-100">
+        <div class="px-8 flex flex-col items-center justify-center h-full">
+          <img class="heart h-48 w-48 object-contain" src="heart.svg" alt="Heart Icon" title="Icon provided by ICONS8">
+          <div class="text-xl text-gray-400 font-semibold text-center">Loading Defibrillators...</div>
+        </div>
+      </div>
+    {/if}
   </div>
 </div>
 
@@ -142,5 +155,37 @@
 #map {
   width: 100%;
   height: 100%;
+}
+
+.heart {
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
 }
 </style>
