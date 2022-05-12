@@ -16,7 +16,6 @@
     try {
       // Fetch locations
       const { data: markers } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/all`);
-      console.log(markers);
 
       mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
       
