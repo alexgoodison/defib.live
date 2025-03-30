@@ -1,20 +1,11 @@
-# create-svelte
+# defib.live
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Defib.live was created out of necessity. The island of Ireland needed a comprehensive, user-friendly defibrillator map that had the potential to become a  household name across the country. My sole intention for this website, is to never leave anyone asking themselves, where is my nearest defibrillator?
 
-## Creating a project
+This web app was created in 2022 using Svelte and MongoDB.
 
-If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
-```
-
-## Developing
+## Running Locally
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
@@ -27,12 +18,8 @@ npm run dev -- --open
 
 ## Building
 
-To create a production version of your app:
+To create a production version of this app:
 
 ```bash
 npm run build
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
